@@ -2,8 +2,6 @@
 include "../../clases/Libro.php";
 include "../../clases/Conexion.php";
 
-
-/* Obtener el id por url */
 if(isset($_GET["id"])){
 
     $id = $_GET["id"];
@@ -16,13 +14,11 @@ if(isset($_GET["id"])){
 
     echo $urlImage;
     echo $urlLibro;
- 
-    /* Eliminar la imagen del libro */
+
     unlink("../../storage/libros/portadas/$urlImage");
-    /* Eliminar el pdf del libro */
+
     unlink("../../storage/libros/pdfs/$urlLibro");
-    /* Eliminar el libro de la bd */
-    
+ 
     $libro->eliminarlibro($id);
 
     header('Location: ../../admin/librosTable.php');

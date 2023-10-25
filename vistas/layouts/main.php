@@ -10,12 +10,11 @@
 <body class="font-sans">
     <nav class="bg-gray-800 p-4">
         <div class="container mx-auto flex items-center justify-between">
-            <!-- Logo o Título -->
             <div class="text-white">
-                <a href="#" class="text-lg font-semibold">Biblioteca</a>
+                <a href="#" class="text-lg font-semibold">LibroSfera</a>
             </div>
 
-            <!-- Menú principal para pantallas grandes -->
+            <!-- menu pc -->
             <div class="hidden md:flex items-center space-x-4">
                 <a href="./index.php" class="text-white">Inicio</a>
                 <?php
@@ -41,7 +40,7 @@
                 }
                 ?>
             </div>
-            <!-- Ícono del menú para pantallas pequeñas -->
+            <!-- icono -->
             <div class="md:hidden">
                 <button id="menu-toggle" class="text-white focus:outline-none">
                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -54,13 +53,15 @@
         </div>
     </nav>
 
-    <!-- Menú desplegable para pantallas pequeñas -->
+    <!-- menu mobile -->
     <div id="menu" class="md:hidden bg-gray-800 hidden p-4">
-        <a href="#" class="block text-white py-2">Inicio</a>
+        <div class="flex flex-col gap-2">
+        
+        <a href="./index.php" class="block text-white py-2">Inicio</a>
         <?php
    if (isset($_SESSION["email"])) {
 
-    echo '<a href="./users/profile.php" class="text-white">Mis prestamos</a>';
+    echo '<a href="./prestamos.php" class="text-white">Mis prestamos</a>';
 
     $usuario = new Usuario();
     $usuario->setConexion($conn->obtenerConexion());
@@ -70,12 +71,13 @@
 }
 
 if (isset($_SESSION["email"])) {
-    echo '<a href="./admin/users/logout.php" class="text-white">Logout</a>';
+    echo '<a href="./users/logout.php" class="text-white">Logout</a>';
 } else {
-    echo '<a href="./admin/users/login.php" class="text-white">Login</a>';
+    echo '<a href="./users/login.php" class="text-white">Login</a>';
 }
         ?>
        
+    </div>
     </div>
 
 

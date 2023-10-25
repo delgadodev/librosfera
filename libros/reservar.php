@@ -38,8 +38,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 
 
-
-
 ?>
 
 
@@ -52,7 +50,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <title>Reservar libro</title>
 </head>
 <body>
-<div class="max-w-md mx-auto bg-white p-6 rounded-md shadow-md">
+<div class="max-w-md mx-auto bg-white p-6  mt-16 rounded-md shadow-md">
 <h1 class="text-2xl font-semibold mb-6">Reservar libro</h1>
 <form method="POST" action="<?= $_SERVER["PHP_SELF"]?>">
 <div class="mb-4">
@@ -96,58 +94,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 </form>
 </div>  
 
-<script>
-
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
-
-
-
-
-      const startDateInput = document.getElementById("startDate");
-
-      // Establecer la fecha mínima en la fecha actual
-      const today = new Date().toISOString().split("T")[0];
-
-      startDateInput.setAttribute("min", today);
-
-      // Manejar el evento de cambio en la fecha de inicio
-
-
-      startDateInput.addEventListener("change", function () {
-        // Obtener la fecha seleccionada en la fecha de inicio
-
-        const selectedStartDate = new Date(startDateInput.value);
-        
-        // Calcular la fecha máxima permitida en la fecha de fin (30 días después de la fecha de inicio)
-        const maxEndDate = new Date(selectedStartDate);
-        maxEndDate.setDate(selectedStartDate.getDate() + 30);
-
-        required
-        // Formatear la fecha máxima como cadena YYYY-MM-DD
-        const maxEndDateString = maxEndDate.toISOString().split("T")[0];
-
-        // Establecer la fecha máxima en la fecha de fin
-        const endDateInput = document.getElementById("endDate");
-
-        endDateInput.setAttribute("max", maxEndDateString);
-
-        //la fecha minima de la fecha de fin tiene que ser como maximo 1 dia mas de la fecha de inicio
-        const minEndDate = new Date(selectedStartDate);
-        minEndDate.setDate(selectedStartDate.getDate() + 1);
-
-        // Formatear la fecha máxima como cadena YYYY-MM-DD
-        const minEndDateString = minEndDate.toISOString().split("T")[0];
-
-        // Establecer la fecha máxima en la fecha de fin
-        endDateInput.setAttribute("min", minEndDateString);
-
-      });
-    });
-
-</script>
     
 </body>
 </html>

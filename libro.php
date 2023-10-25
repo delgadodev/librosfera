@@ -42,11 +42,6 @@ $vista->set('email', $email);
 $vista->render('vistas/libro.php');
 
 
-
-
-
-
-
 ?>
 
 

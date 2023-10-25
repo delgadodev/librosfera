@@ -7,7 +7,7 @@
     <title>Crear libro</title>
 </head>
 <body>
-<div class="max-w-md mx-auto bg-white p-6 rounded-md shadow-md">
+<div class="max-w-md mx-auto bg-white p-6 mt-16  rounded-md shadow-md">
 <h1 class="text-2xl font-semibold mb-6">Crear Libro</h1>
 <form method="POST" action="<?= $_SERVER["PHP_SELF"]?>" enctype="multipart/form-data">
 <div class="mb-4">

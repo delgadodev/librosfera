@@ -8,10 +8,10 @@ class Conexion {
     private $conexion;
 
     public function __construct() {
-        $dsn = "mysql:host={$this->host};dbname={$this->base_datos}";
+        $config = "mysql:host={$this->host};dbname={$this->base_datos}";
 
         try {
-            $this->conexion = new PDO($dsn, $this->usuario, $this->contrasena);
+            $this->conexion = new PDO($config, $this->usuario, $this->contrasena);
             $this->conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             die("Error de conexión: " . $e->getMessage());
@@ -26,11 +26,5 @@ class Conexion {
         $this->conexion = null;
     }
 }
-
-// Uso de la clase:
-// $conexionBD = new Conexion();
-// $conexion = $conexionBD->obtenerConexion();
-// Realizar operaciones con la base de datos...
-// $conexionBD->cerrarConexion();
 
 ?>

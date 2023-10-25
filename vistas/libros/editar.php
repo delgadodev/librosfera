@@ -7,7 +7,7 @@
     <title>Crear libro</title>
 </head>
 <body>
-<div class="max-w-md mx-auto bg-white p-6 rounded-md shadow-md">
+<div class="max-w-md mx-auto bg-white p-6 mt-16  rounded-md shadow-md">
 <h1 class="text-2xl font-semibold mb-6">Editar Libro</h1>
 <form method="POST" action="<?= $_SERVER["PHP_SELF"]?>" enctype="multipart/form-data">
 <div class="mb-4">
@@ -38,6 +38,8 @@
                 <label for="fecha" class="block text-gray-600 text-sm font-medium mb-2">Fecha de publicacion</label>
                 <input type="date" id="fecha" name="fecha"  value="<?= $fecha ?>" class="w-full p-2 border rounded">
             </div>
+
+            <!-- IMAGEN -->
 
             <div class="mb-4">
                 <label for="imagen" class="block text-gray-600 text-sm font-medium mb-2">Portada</label>

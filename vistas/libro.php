@@ -1,6 +1,8 @@
-<main class="container mx-auto gap-5 grid grid-cols-2 mt-14 p-5">
+<main class="max-w-3xl mx-auto gap-5 grid md:grid-cols-2 mt-14 p-5 ">
 
-<img class="w-full" src="./storage/libros/portadas/<?= $imagen; ?>" alt="" >
+<img class="w-full" style="
+   
+" src="./storage/libros/portadas/<?= $imagen; ?>" alt="" >
 
 
 <div class="flex flex-col gap-5">

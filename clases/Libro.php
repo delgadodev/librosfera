@@ -65,37 +65,33 @@ class Libro {
 
     /* GETTERS  */
 
-        // Getter para $titulo
+       
         public function getTitulo() {
             return $this->titulo;
         }
     
-        // Getter para $sipnosis
+       
         public function getSipnosis() {
             return $this->sipnosis;
         }
     
-        // Getter para $autor
+      
         public function getAutor() {
             return $this->autor;
         }
-    
-        // Getter para $genero
+
         public function getGenero() {
             return $this->genero;
         }
-    
-        // Getter para $añoPublicacion
+
         public function getAñoPublicacion() {
             return $this->añoPublicacion;
         }
-    
-        // Getter para $urlImagen
+
         public function getUrlImagen() {
             return $this->urlImagen;
         }
-    
-        // Getter para $urlLibro
+
         public function getUrlLibro() {
             return $this->urlLibro;
         }
@@ -174,10 +170,6 @@ class Libro {
         return false;
       }
     }
-
-
-
-  
 
 
 

@@ -90,58 +90,41 @@ if (!is_uploaded_file($_FILES['archivo_pdf']['tmp_name']) || !move_uploaded_file
 
     $targetDir = "../../storage/libros/portadas/";
     $uploadOk = 1;
-
-    // Verificar si se seleccionó un archivo
+    // comprobar que se selecciono una imagen
     if (!isset($_FILES["imagen"])) {
         echo "Por favor, selecciona una imagen.";
         $uploadOk = 0;
     } else {
-        // Generar un nombre único para la imagen
+
+        // nombre unico para la imagen
         $uniqueName = uniqid() . '_' . basename($_FILES["imagen"]["name"]);
         $targetFile = $targetDir . $uniqueName;
         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
-        // Verificar si es una imagen real
+        // verificar si es una imagen 
         $check = getimagesize($_FILES["imagen"]["tmp_name"]);
         if ($check === false) {
-            echo "El archivo no es una imagen válida.";
+            echo "El archivo no es una imagen";
             $uploadOk = 0;
         }
 
-        // Verificar si el archivo ya existe
-        if (file_exists($targetFile)) {
-            echo "Lo siento, el archivo ya existe.";
-            $uploadOk = 0;
-        }
-
-        // Verificar el tamaño de la imagen
-        if ($_FILES["imagen"]["size"] > 500000) {
-            echo "Lo siento, el archivo es demasiado grande.";
-            $uploadOk = 0;
-        }
-
-        // Permitir ciertos formatos de archivo
+        // formatos permitidos
         $allowedFormats = array("jpg", "jpeg", "png", "gif");
         if (!in_array($imageFileType, $allowedFormats)) {
-            echo "Lo siento, solo se permiten archivos JPG, JPEG, PNG y GIF.";
+            echo "Solo se permiten archivos JPG, JPEG, PNG y GIF.";
             $uploadOk = 0;
         }
     }
 
-    // Verificar si $uploadOk está configurado en 0 por algún error
+    // verificar si $uploadOk no tiene errror
     if ($uploadOk == 0) {
         echo "Lo siento, tu archivo no fue subido.";
     } else {
         // Intentar subir el archivo
         if (move_uploaded_file($_FILES["imagen"]["tmp_name"], $targetFile)) {
-            echo "El archivo " . htmlspecialchars(basename($_FILES["imagen"]["name"])) . " ha sido subido con éxito.";
-            echo '<br>';
-            echo 'Imagen única guardada como: ' . $uniqueName;
 
             $imagen = $uniqueName;
 
-            // Ahora puedes guardar $targetFile (o $uniqueName) en tu base de datos
-            // y recuperarlo más tarde para mostrar la imagen.
         } else {
             echo "Lo siento, hubo un error al subir tu archivo.";
         }
@@ -150,30 +133,6 @@ if (!is_uploaded_file($_FILES['archivo_pdf']['tmp_name']) || !move_uploaded_file
     }else {
         $imagen = $_POST["imagen_anterior"];
     }
-
-
-
-  
-
-
-    
-
-    
-
-
-
-
-
-
-  
-
-
-
-
-    
-    
-
-
 
     $libro = new Libro();
     $libro->setConexion((new Conexion())->obtenerConexion());

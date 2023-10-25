@@ -26,13 +26,13 @@ if(isset($_GET["id"])){
     $mail = new PHPMailer(true);
 
     try {
-        // Configuración del servidor
+        
         $mail->isSMTP();
         $mail->Host = 'smtp-mail.outlook.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'librosfera@outlook.com';  // Tu dirección de correo Outlook/Hotmail
-        $mail->Password = 'librosucse1234';  // Tu contraseña de Outlook/Hotmail
-        $mail->SMTPSecure = 'tls';  // Puedes cambiarlo a 'ssl' si es necesario
+        $mail->Username = 'librosfera@outlook.com'; 
+        $mail->Password = 'librosucse1234'; 
+        $mail->SMTPSecure = 'tls'; 
         $mail->Port = 587;
     
         // Configuración del remitente y destinatario
@@ -58,13 +58,9 @@ if(isset($_GET["id"])){
         <h1 class='text-4xl text-white bg-blue-500 p-40 rounded-full'>Correo enviado correctamente</h1>
         </div>";
 
-        /* Redirigir en 5 seg */
+        /* se redirigee en 3 seg */
 
         header("refresh:3;url=../prestamosTable.php");
-
-
-
-
 
 
         
@@ -72,9 +68,6 @@ if(isset($_GET["id"])){
         echo 'Error al enviar el correo: ' . $mail->ErrorInfo;
     }
     
-
-
-
 
 }
 
